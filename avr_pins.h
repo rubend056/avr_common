@@ -13,36 +13,33 @@
 //   my guess it doens't and you can read it regardless
 
 // Set the data direction register
-#define SET_DDR(l,s) SET(DDR##l, s)
+#define _SET_DDR(l,s) SET(DDR##l, s)
+#define SET_DDR(l,s) _SET_DDR(l,s)
+
 // Set the PORT, wether it's 5V or Ground(output), enable pullup or not(input)
-#define SET_PORT(l,s) SET(PORT##l, s)
-#define TOG_PORT(l,s) TOG(PORT##l, s)
+#define _SET_PORT(l,s) SET(PORT##l, s)
+#define SET_PORT(l,s) _SET_PORT(l,s)
+
+#define _TOG_PORT(l,s) TOG(PORT##l, s)
+#define TOG_PORT(l,s) _TOG_PORT(l,s)
 // Clear the data direction register
-#define CLR_DDR(l,s) CLR(DDR##l, s)
+#define _CLR_DDR(l,s) CLR(DDR##l, s)
+#define CLR_DDR(l,s) _CLR_DDR(l,s)
 // Clear the PORT, wether it's 5V or Ground(output), enable pullup or not(input)
-#define CLR_PORT(l,s) CLR(PORT##l, s)
+#define _CLR_PORT(l,s) CLR(PORT##l, s)
+#define CLR_PORT(l,s) _CLR_PORT(l,s)
 
 // EITHER SET OR CLR
 // Set the data direction register
-#define SET_OR_CLR_DDR(l,s, t) SET_OR_CLR(DDR##l, s, t)
+#define _SET_OR_CLR_DDR(l,s, t) SET_OR_CLR(DDR##l, s, t)
+#define SET_OR_CLR_DDR(l,s, t) _SET_OR_CLR_DDR(l,s, t)
 // Set the PORT, wether it's 5V or Ground(output), enable pullup or not(input)
-#define SET_OR_CLR_PORT(l,s, t) SET_OR_CLR(PORT##l, s, t)
+#define _SET_OR_CLR_PORT(l,s, t) SET_OR_CLR(PORT##l, s, t)
+#define SET_OR_CLR_PORT(l,s, t) _SET_OR_CLR_PORT(l,s, t)
 
 // Get teh PIN, wether the pin is 5v or not
-#define GET_PINI(l,s) GETI(PIN##l, s)
-
-
-
-
-// // For atmega328P, to be used with SET and GET functions defined here ONLY
-// #define PIN0 D,0
-// #define PIN1 D,1
-// #define PIN2 D,2
-// #define PIN3 D,3
-// #define PIN4 D,4
-// #define PIN5 D,5
-// #define PIN6 D,6
-// #define PIN7 D,7
+#define _GET_PINI(l,s) GETI(PIN##l, s)
+#define GET_PINI(l,s) _GET_PINI(l,s)
 
 
 #endif
